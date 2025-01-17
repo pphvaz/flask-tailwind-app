@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block titulo %} {% endblock %}
+
+{% block content %}
+        <section class="bg-[#100d23] text-white pt-[60px] min-h-[100vh] py-12">
+          <div class="w-4/5 mx-auto">
+            <section>
+              <h1 class="text-white w-full font-bold md:text-xl lg:text-4xl py-4">Política de Privacidade</h1>
+              <h4>Última atualização: {{ atualizacao }}</h4> 
+            </section>
+            <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+            <section>
+              <div id="introducao">
+                <h4 class="text-white w-full font-bold md:text-xl lg:text-xl py-2">1. Introdução</h4>
+                <p>
+                  Bem-vindo ao nosso site! Esta Política de Privacidade explica como coletamos, usamos, armazenamos e protegemos suas informações pessoais. Estamos comprometidos em respeitar sua privacidade e cumprir a Lei Geral de Proteção de Dados (LGPD).
+                </p>
+              </div>
+              <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+              <div id="dados_coletados" class="space-y-2">
+                  <h4 class="text-white w-full font-bold md:text-xl lg:text-xl py-2">2. Informações que coletamos</h4>
+                  <p>Coletamos os seguintes dados pessoais através do nosso formulário:</p>
+                  <ul class="list-disc pl-5 space-y-2">
+                    <li>Nome completo;</li>
+                    <li>Telefone;</li>
+                    <li>E-mail;</li>
+                    <li>Patrimônio disponível para investimento;</li>
+                    <li>Valor mensal para investimento;</li>
+                  </ul>
+                  <p>Também utilizamos o Google Analytics para coletar dados não identificáveis pessoalmente, como:</p>
+                  <ul class="list-disc pl-5 space-y-2">
+                    <li>Localização aproximada;</li>
+                    <li>Páginas visitadas;</li>
+                    <li>Duração da navegação;</li>
+                    <li>Tipo de dispositivo (desktop/mobile);</li>
+                    <li>Navegador e sistema operacional;</li>
+                  </ul>
+              </div>
+              <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+              <div id="finalidade" class="space-y-2">
+                <h4 class="text-white w-full font-bold md:text-xl lg:text-xl py-2">3. Informações que coletamos</h4>
+                <p>Usamos as informações pessoais fornecidas por você para:</p>
+                <ol class="list-disc pl-5 space-y-2">
+                  <li>Entrar em contato e oferecer consultoria personalizada sobre investimentos;</li>
+                  <li>Enviar materiais educativos e promocionais (com seu consentimento);</li>
+                  <li>Melhorar nossos serviços com base em suas necessidades.</li>
+                </ol>
+                <p>Os dados coletados pelo Google Analytics são utilizados para:</p>
+                <ul class="list-disc pl-5 space-y-2">
+                  <li>Análise do comportamento do usuário no site;</li>
+                  <li>Melhorar a experiência de navegação e otimizar funcionalidades.</li>
+                </ul>
+              </div>
+              <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+              <div id="compartilhamento" class="space-y-2">
+                <h4 class="text-white w-full font-bold md:text-xl lg:text-xl py-2">4. Compartilhamento de Dados</h4>
+                <p>Seus dados poderão ser compartilhados com as seguintes entidades, exclusivamente para as finalidades indicadas:</p>
+                <ul class="list-disc pl-5 space-y-2">
+                  <li>Google Analytics: Para análise de navegação (dados não identificáveis pessoalmente);</li>
+                </ul>
+                <p>Não vendemos ou compartilhamos suas informações pessoais com terceiros para fins publicitários sem o seu consentimento.</p>
+              </div>
+              <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+              <div id="seguranca" class="space-y-2">
+                <h4 class="text-white w-full font-bold md:text-xl lg:text-xl py-2">5. Armazenamento e Segurança dos Dados</h4>
+                <p>Armazenamos seus dados em servidores seguros e adotamos medidas técnicas e organizacionais para proteger suas informações contra acessos não autorizados, perda, ou alterações indevidas.</p>
+                <p>Os dados coletados são armazenados pelo período necessário para cumprir as finalidades descritas, salvo se houver outra exigência legal.</p>
+              </div>
+              <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+              <div id="lgpd" class="space-y-2">
+                <h4 class="text-white w-full font-bold md:text-xl lg:text-xl py-2">6. Direitos dos Usuários</h4>
+                <p>De acordo com a LGPD, você tem o direito de:</p>
+                <ul class="list-disc pl-5 space-y-2">
+                  <li>Solicitar acesso aos seus dados pessoais;</li>
+                  <li>Corrigir informações incompletas, inexatas ou desatualizadas;</li>
+                  <li>Solicitar a exclusão de seus dados (quando legalmente aplicável);</li>
+                  <li>Revogar o consentimento dado anteriormente.</li>
+                </ul>
+                <p>Para exercer seus direitos, envie uma solicitação para: dansalum@altavista.com.</p>
+              </div>
+              <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+              <div id="alteracoes" class="space-y-2">
+                <h4 class="text-white w-full font-bold md:text-xl lg:text-xl py-2">7. Alterações nesta Política</h4>
+                <p>Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos você sobre alterações significativas por e-mail ou através de nosso site.</p>
+              </div>
+            </section>
+          </div>
+        </section>
+{% endblock %}

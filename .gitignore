@@ -1,0 +1,36 @@
+# Ignorar o ambiente virtual
+env/
+venv/
+.env
+
+# Arquivos de configuração local
+*.pyc
+__pycache__/
+*.pyo
+*.log
+
+# Banco de dados SQLite
+instance/*.db
+instance/*.sqlite3
+
+# Ignore config file that contains sensitive info
+config.py
+
+# Ignore node_modules
+node_modules/
+
+# Ignore Tailwind CLI output
+/dist/
+/build/
+
+# Ignore lock files if you're using npm/yarn and prefer not to commit them
+package-lock.json
+yarn.lock
+
+# Ignore IDE or editor files
+.vscode/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db

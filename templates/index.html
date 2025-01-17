@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+
+{% block titulo %} {% endblock %}
+
+{% block content %}
+<section class="bg-[url('/static/images/bg-main.png')] bg-cover bg-no-repeat w-full bg-[top_40px] lg:bg-center h-full pb-4 px-2">
+    <div class="pt-20 flex lg:w-11/12 mx-auto justify-between flex-col  items-center lg:flex-row space-y-6">
+      <div class="space-y-4 md:w-5/6 xl:w-2/5">
+        <h2 class="text-white w-full font-extralight md:text-xl lg:text-2xl py-4">ASSESSORIA DE INVESTIMENTOS</h2>
+        <h1 class="text-white text-4xl font-extralight sm:text-5xl">Invista com segurança e confiança, você não precisa estar sozinho.</h1>
+        <div class="space-y-2">
+          <h1 class="text-white font-bold text-4xl sm:text-5xl">Daniel Salum</h1>
+          <p class="text-white sm:text-2xl">Sócio Alta Vista e XP Inc.</p>
+        </div>
+      </div>
+      <div class="flex w-full sm:w-4/6 md:w-5/6 xl:w-2/5 flex-col items-center space-y-4">
+        <div class="bg-white w-full p-2 lg:p-12 rounded-lg border sm:text-left shadow-2xl">
+          <form class="w-full space-y-4" id="form-contato">
+            <header class="text-center">
+              <h1 class="text-lg lg:text-2xl">Tire suas dúvidas, marque uma 
+                <span class="font-bold">reunião exclusiva</span>
+              </h1>
+            </header>
+            <div class="space-y-2">
+              <!-- Nome -->
+              <div class="flex flex-col">
+                <label class="font-medium mb-1" for="">Nome Completo</label>
+                <input required class="bg-azul-input pl-2 w-full py-2 text-md border-b border-black focus:outline-none focus:outline-white focus:ring-1 focus:ring-white hover:ring-2 hover:ring-black focus:ring-offset-2 focus:ring-offset-azul-escura placeholder-gray-600 font-normal placeholder:font-extralight" placeholder="Seu nome" type="text" name="nome" id="">
+              </div>
+          
+              <!-- Telefone -->
+              <div class="flex flex-col">
+                <label class="font-medium mb-1" for="">Telefone</label>
+                <input required class="bg-azul-input pl-2 w-full py-2 text-md border-b border-black focus:outline-none focus:outline-white focus:ring-1 focus:ring-white hover:ring-2 hover:ring-black focus:ring-offset-2 focus:ring-offset-azul-escura placeholder-gray-600 font-normal placeholder:font-extralight" placeholder="Seu telefone" type="text" maxlength="15" name="telefone" id="telefone-input">
+              </div>
+          
+              <!-- E-mail -->
+              <div class="flex flex-col">
+                <label class="font-medium mb-1" for="">E-mail</label>
+                <input required class="bg-azul-input pl-2 w-full py-2 text-md border-b border-black focus:outline-none focus:outline-white focus:ring-1 focus:ring-white hover:ring-2 hover:ring-black focus:ring-offset-2 focus:ring-offset-azul-escura placeholder-gray-600 font-normal placeholder:font-extralight" placeholder="Seu melhor e-mail" type="email" name="email" id="">
+              </div>
+          
+              <!-- Patrimônio -->
+              <div class="flex flex-col">
+                <label class="font-medium mb-1" for="">Patrimônio que deseja investir</label>
+                <select required name="patrimonio" class="w-full font-normal py-2 text-md border-b border-black focus:outline-none focus:outline-white focus:ring-1 focus:ring-white hover:ring-2 hover:ring-black focus:ring-offset-2 focus:ring-offset-azul-escura bg-azul-input">
+                  <option hidden selected value="">Selecionar</option>
+                  <option value="10000">Até R$ 10.000</option>
+                  <option value="50000">R$ 10.000 - R$ 50.000</option>
+                  <option value="200000">R$ 50.000 - R$ 200.000</option>
+                  <option value="500000">R$ 200.000 - R$ 500.000</option>
+                  <option value="1000000">Mais de R$ 500.000</option>
+                </select>
+              </div>
+          
+              <!-- Aporte mensal -->
+              <div class="flex flex-col">
+                <label class="font-medium mb-1" for="">Aporte mensal disponível para investimento</label>
+                <select required name="mensal" class="w-full font-normal py-2 text-md border-b border-black focus:outline-none focus:outline-white focus:ring-1 focus:ring-white hover:ring-2 hover:ring-black focus:ring-offset-2 focus:ring-offset-azul-escura bg-azul-input">
+                  <option hidden selected value="">Selecionar</option>
+                  <option value="500">Até R$ 500</option>
+                  <option value="1000">R$ 500 - R$ 1000</option>
+                  <option value="2000">R$ 1000 - R$ 2000</option>
+                  <option value="5000">R$ 2000 - R$ 5000</option>
+                  <option value="10000">Mais de R$ 5000</option>
+                </select>
+              </div>
+            </div>
+            <button id="adicionar_cliente" type="button" class="text-white w-full p-4 hover:scale-105 transition-transform rounded-tr-md rounded-bl-md text-lg font-bold bg-azul-forms shadow-xl">
+              Converse com Daniel Salum
+            </button>
+          </form>
+        </div>
+        <div class="md:hidden flex items-center space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="8" fill="#00FF00" style="filter: brightness(1.2);" />
+          </svg>                  
+          <span class="text-white text-center text-xl">Disponível para reunião</span>
+        </div>
+      </div>
+    </div>
+</section>
+<section class="flex items-center mb-12 md:h-[80vh] md:p-0 bg-azul-darkblue text-azul-darkblue">
+  <div data-aos="fade-left" data-aos-duration="1000" class="hidden text-center flex-1 md:flex px-6 text-white ">
+    <h1 class="text-2xl md:text-5xl font-extralight">Você sabia que com um assessor você pode ir <span class="font-bold">mais longe</span>?</h1>
+  </div>
+  <div class="flex-1 bg-white h-full flex ">
+    <div class="p-2 space-y-6 flex flex-col items-center justify-center lg:text-center"> 
+      <div class="md:w-4/5 space-y-1 text-start ">
+        <h4 class="text-2xl">Sobre mim</h4>
+        <p class="text-lg font-extralight">Sou um especialista em investimentos, tenho toda maestria para te ajudar a atingir seus objetivos, sejam eles financeiros ou realização de sonhos!</p>
+      </div>
+      <div class="md:w-4/5 space-y-1 text-start">
+        <h4 class="text-2xl">O que eu te ofereço</h4>
+        <p class="text-lg font-extralight">Estratégia com planejamento financeiro que seja realista e exequível. Fidelidade no acompanhamento e gestão dos investimentos, entregar o sucesso na jornada do investidor.</p>
+      </div>
+      <div class="flex text-center w-4/5 mx-auto">
+        <a href="#form-contato" class="w-full text-white p-4 hover:bg-azul-darkblue transition-transform rounded-tr-md rounded-bl-md bg-azul-escura md:text-lg font-bold shadow-xl">Agende uma reunião gratuitamente</a>
+      </div>
+    </div>
+    
+  </div>
+</section>
+<section class="lg:min-h-[60vh] px-1 lg:pt-12 space-y-6 flex flex-col md:w-11/12 mx-auto  text-azul-darkblue my-4 lg:text-center">
+  <div class="">
+    <h1 class="text-2xl sm:text-5xl font-extralight">Tenha <span class="font-bold">tranquilidade</span> ao investir</h1>
+  </div>
+  <div>
+    <p class="text-lg font-extralight lg:p-4">Conte com a ajuda de um especialista com <span class="font-medium">Bacharel em Administração na UNICAMP</span> e certificado em comércio internacional. Com 6 anos de experiência no mercado financeiro sendo 4 como assessor de investimentos.</p>
+  </div>
+  <div class="flex flex-col md:flex-row gap-4 lg:gap-12 items-center md:justify-around">
+    <div class="shadow-lg flex-1 rounded-tr-md rounded-br-md rounded-bl-md text-start space-y-2 max-w-[425px]">
+      <div class="bg-[url('/static/images/utilities/tranquilidade.png')] overflow-hidden bg-cover bg-no-repeat bg-center min-h-[150px] w-full">
+      </div>
+      <div class="p-4 space-y-2">
+        <h4 class="font-bold">Planejamento Financeiro e Sucessório</h4>
+        <p class="font-extralight">Garanta seu legado e proteja seu futuro: conte comida para cuidar do seu patrimônio e planejar sua sucessão</p>
+      </div>
+
+    </div>
+    <div class="shadow-lg flex-1 rounded-tr-md rounded-br-md rounded-bl-md text-start space-y-2 max-w-[425px]">
+      <div class="bg-[url('/static/images/utilities/laptop.png')] overflow-hidden bg-cover bg-no-repeat bg-center min-h-[150px] w-full">
+      </div>
+      <div class="p-4 space-y-2 flex-1">
+        <h4 class="font-bold">Gestão de ativos com mesas especializadas</h4>
+        <p class="font-extralight">Você tem <span class="font-normal">tempo</span> para acompanhar o mercardo o dia todo? Nós <span class="font-normal">contamos</span> com <span class="font-normal">especialistas</span> dedicados a <span class="font-normal">identificar</span> as <span class="font-normal">melhores</span> oportunidades para você.</p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<section id="simulacao" class="px-2 p-10 min-h-[60vh] mx-auto lg:text-center lg:p-12 text-azul-darkblue space-y-6">
+  <div>
+    <h1 class="text-3xl font-bold sm:text-5xl">Simulação de Investimentos</h1>
+  </div>
+  <form class="md:w-4/5 lg:w-3/5 mx-auto">
+    <div class="space-y-4">
+      <div class="flex flex-col md:grid md:grid-cols-2 md:grid-rows-2 md:gap-4">
+        <div class="flex space-y-1 flex-col text-start">
+          <label for="">Valor Inicial</label>
+          <input required placeholder="R$ 0,00" class="border border-black p-2" type="number" name="inicial" step="100" min=0>
+        </div>
+        <div class="flex space-y-1 flex-col text-start">
+          <label for="">Aporte Mensal</label>
+          <input required placeholder="R$ 0,00" class="border border-black p-2" type="number" name="mensal" step="50" min=0> 
+        </div>  
+        <div class="flex space-y-1 flex-col text-start">
+          <label for="">Taxa de Juros</label>
+          <div class="grid grid-cols-10 gap-2">
+            <input required class="col-span-7 border border-black p-2" type="number" name="juros" min=0 step="0.5">
+            <select required class="col-span-3 border border-black p-2" type="text" name="tipo_juros">
+              <option value="ano">a.a.</option>
+              <option value="mes" selected>a.m.</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex space-y-1 flex-col text-start">
+          <label for="">Período</label>
+          <div class="grid grid-cols-10 gap-2">
+            <input required class="col-span-7 border border-black p-2" type="number" name="tempo" min=0 step="1">
+            <select required class="col-span-3 border border-black p-2" type="text" name="tipo_tempo">
+              <option value="meses">Meses</option>
+              <option value="anos" selected>Anos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="flex md:w-1/5 mx-auto">
+        <button type="button" id="calculateButton" class="text-white w-full p-4 hover:scale-105 transition-transform rounded-tr-md rounded-bl-md text-lg font-bold bg-azul-forms shadow-xl">Calcular</button>
+      </div>
+    </div>
+  </form>
+  <div id="container-simulador" class="hidden lg:w-4/5 mx-auto min-h-[40vh] py-4">
+    <h1 id="titulo-simulador" class="font-extrabold text-4xl text-center w-full pt-4">Em 2 anos, você teria:</h1>
+    <div id="result-container">
+      
+    </div>
+
+  </div>
+  <div id="disclaimer" class="hidden space-y-4">
+    <div class="font-extralight text-xs text-gray-400 p-0 m-0">
+      <p style="font-size: 0.9em; color: gray;">Valores de referência: Selic: {{ taxa_selic }}% a.a. CDI: {{ taxa_cdi }}% a.a. Poupança: {{ poupanca }}% a.a.</p>
+      <p style="font-size: 0.9em; color: gray;">Dados obtidos através de API pública do Banco Central do Brasil. Última atualização: {{ atualizacao }}</p>
+      <p style="font-size: 0.9em; color: gray;">
+          * Os valores apresentados são médias dos dados obtidos no último ano. 
+          Rendimentos passados não garantem rentabilidade futura. Sempre consulte um especialista antes de tomar decisões financeiras.
+      </p>
+    </div>
+    <div class="flex text-center mx-auto">
+      <a href="#form-contato" class="w-full lg:w-3/6 mx-auto text-white p-4 hover:bg-azul-darkblue transition-transform rounded-tr-md rounded-bl-md bg-azul-escura md:text-lg font-bold shadow-xl">Agende uma reunião gratuitamente</a>
+    </div>
+  </div>
+</section>
+<!-- Q & A -->
+<section class=" bg-azul-input py-4 text-azul-darkblue">
+  <div class="md:w-5/6 md:mx-auto">
+    <div class="text-center p-2 text-3xl font-bold space-y-2 my-12">
+      <h1 class="md:text-5xl font-bold ">F.A.Q</h1>
+      <p class="font-extralight text-2xl md:text-3xl"><span class="font-bold">Perguntas e Respostas</span> sobre a Assessoria de Investimentos</p>
+    </div>
+    <div class="flex flex-col w-full p-2 justify-center">
+      <div class="w-full qa-item flex flex-col" data-id="1">
+        <button class="flex text-start p-4 md:p-8 border-b-2 border-azul-darkblue">
+          <p class="flex-1 font-bold text-lg md:text-2xl">Por que devo investir com o Daniel Salum?</p>
+          <svg class="-mr-1 size-5 text-azul-darkblue transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="p-4 border-b-2 text-lg md:text-2xl border-azul-darkblue hidden">
+          <p class="font-extralight py-2">Investir com um especialista pode ser a chave para atingir seus objetivos financeiros com mais eficiência. Com anos de experiência e uma abordagem personalizada, Daniel Salum oferece um planejamento financeiro realista e um acompanhamento contínuo para garantir que seus investimentos cresçam de maneira segura e assertiva.</p>
+        </div>
+      </div>
+      <div class="w-full qa-item flex flex-col" data-id="2">
+        <button class="flex text-start p-4 md:p-8 border-b-2 border-azul-darkblue">
+          <p class="flex-1 font-bold text-lg md:text-2xl">Quais são os benefícios de contar com um assessor de investimentos?</p>
+          <svg class="-mr-1 size-5 text-azul-darkblue transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="p-4 border-b-2 text-lg md:text-2xl border-azul-darkblue hidden">
+          <p class="font-extralight py-2">Um assessor de investimentos não apenas facilita a escolha dos melhores ativos para seu perfil, mas também oferece um acompanhamento contínuo. Isso significa uma gestão profissional do seu portfólio, otimização de seus investimentos e redução dos riscos ao longo da jornada financeira.</p>
+        </div>
+      </div>
+      <div class="w-full qa-item flex flex-col" data-id="3">
+        <button class="flex text-start p-4 md:p-8 border-b-2 border-azul-darkblue">
+          <p class="flex-1 font-bold text-lg md:text-2xl">Como posso saber se estou pronto para investir?</p>
+          <svg class="-mr-1 size-5 text-azul-darkblue transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="p-4 border-b-2 text-lg md:text-2xl border-azul-darkblue hidden">
+          <p class="font-extralight py-2">Se você já tem um valor disponível para investir ou está começando a planejar o futuro financeiro, o primeiro passo é agendar uma reunião. Juntos, vamos entender suas necessidades, traçar um plano de investimentos e definir os próximos passos para alcançar seus objetivos.</p>
+        </div>
+      </div>
+      <div class="w-full qa-item flex flex-col" data-id="4">
+        <button class="flex text-start p-4 md:p-8 border-b-2 border-azul-darkblue">
+          <p class="flex-1 font-bold text-lg md:text-2xl">Quais serviços você oferece e qual o custo?</p>
+          <svg class="-mr-1 size-5 text-azul-darkblue transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="p-4 border-b-2 text-lg md:text-2xl border-azul-darkblue hidden">
+          <p class="font-extralight py-2">Oferecemos planejamento financeiro e sucessório, além de uma gestão completa de ativos através de mesas especializadas. Dependendo do seu perfil, você pode escolher entre um modelo fee-based, onde você paga um valor acordado sobre o seu portfólio, ou comissionamento-based, no qual você paga apenas na hora da aquisição dos ativos.</p>
+        </div>
+      </div>
+      <div class="w-full qa-item flex flex-col" data-id="5">
+        <button class="flex text-start p-4 md:p-8 border-b-2 border-azul-darkblue">
+          <p class="flex-1 font-bold text-lg md:text-2xl">Quais são as qualificações e experiência de Daniel Salum?</p>
+          <svg class="-mr-1 size-5 text-azul-darkblue transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="p-4 border-b-2 text-lg md:text-2xl border-azul-darkblue hidden">
+          <p class="font-extralight py-2">Sou Bacharel em Administração pela UNICAMP, certificado em Comércio Internacional e tenho 6 anos de experiência no mercado financeiro, com 4 deles dedicados à assessoria de investimentos. Já administrei mais de R$40 milhões em portfólio e atendi mais de 200 famílias. Minha missão é garantir o sucesso da sua jornada de investimentos.</p>
+        </div>
+      </div>
+      <div class="w-full qa-item flex flex-col" data-id="6">
+        <button class="flex text-start p-4 md:p-8 border-b-2 border-azul-darkblue">
+          <p class="flex-1 font-bold text-lg md:text-2xl">Como posso começar a investir?</p>
+          <svg class="-mr-1 size-5 text-azul-darkblue transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="p-4 border-b-2 text-lg md:text-2xl border-azul-darkblue hidden">
+          <p class="font-extralight py-2">Você pode começar imediatamente, desde que tenha o valor necessário ou um planejamento de aporte mensal. Caso precise de orientação sobre como estruturar sua jornada financeira, basta agendar uma reunião para que possamos discutir suas metas e como alcançá-las.</p>
+        </div>
+      </div>
+      <div class="w-full qa-item flex flex-col" data-id="8">
+        <button class="flex text-start p-4 md:p-8 border-b-2 border-azul-darkblue">
+          <p class="flex-1 font-bold text-lg md:text-2xl">Como agendar uma reunião com Daniel Salum?</p>
+          <svg class="-mr-1 size-5 text-azul-darkblue transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="p-4 border-b-2 text-lg md:text-2xl border-azul-darkblue hidden">
+          <p class="font-extralight py-2">Agende sua reunião diretamente no site. Basta preencher os campos com seu nome, telefone, e-mail e informações sobre o seu patrimônio e aporte mensal. A reunião é gratuita e serve para entender suas necessidades e construir um plano de investimentos personalizado.</p>
+        </div>
+      </div>
+      <div class="w-full qa-item flex flex-col" data-id="9">
+        <button class="flex text-start p-4 md:p-8 border-b-2 border-azul-darkblue">
+          <p class="flex-1 font-bold text-lg md:text-2xl">O que é planejado em uma reunião de assessoria?</p>
+          <svg class="-mr-1 size-5 text-azul-darkblue transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="p-4 border-b-2 text-lg md:text-2xl border-azul-darkblue hidden">
+          <p class="font-extralight py-2">Durante a reunião, discutiremos sua saúde financeira, objetivos de investimento e as melhores estratégias para alcançá-los. A ideia é entender sua situação atual, elaborar um plano de ação e garantir que o caminho escolhido esteja alinhado com suas metas e tolerância ao risco.</p>
+        </div>
+      </div>
+      <div class="w-full qa-item flex flex-col" data-id="10">
+        <button class="flex text-start p-4 md:p-8 border-b-2 border-azul-darkblue">
+          <p class="flex-1 font-bold text-lg md:text-2xl">Quais são os próximos passos após a reunião?</p>
+          <svg class="-mr-1 size-5 text-azul-darkblue transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="p-4 border-b-2 text-lg md:text-2xl border-azul-darkblue hidden">
+          <p class="font-extralight py-2">Após a reunião, você receberá um plano detalhado de investimentos com as melhores opções para o seu perfil. A partir daí, começaremos a implementação da estratégia, com monitoramento contínuo e ajustes conforme necessário, sempre focando no seu sucesso financeiro.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex text-center w-4/5 lg:w-2/5 my-10 mx-auto">
+    <a href="#form-contato" class="w-full text-white p-4 hover:bg-azul-darkblue transition-transform rounded-tr-md rounded-bl-md bg-azul-escura md:text-lg font-bold shadow-xl">Agende uma reunião gratuitamente</a>
+  </div>
+</section>
+{% endblock %}

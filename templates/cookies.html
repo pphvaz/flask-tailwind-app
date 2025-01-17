@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block titulo %} {% endblock %}
+
+{% block content %}
+        <section class="bg-[#100d23] text-white pt-[60px] min-h-[100vh] py-12">
+          <div class="w-4/5 mx-auto">
+            <section>
+              <h1 class="text-white w-full font-bold md:text-xl lg:text-4xl py-4">Política de Cookies</h1>
+              <h4>Última atualização: {{ atualizacao }}</h4> 
+            </section>
+            <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+            <section>
+              <div id="introducao">
+                <h4 class="text-white w-full font-bold md:text-xl lg:text-xl py-2">1. O que são Cookies?</h4>
+                <p>
+                    Cookies são pequenos arquivos de texto armazenados no seu navegador ao visitar nosso site. Eles ajudam a melhorar sua experiência ao lembrar preferências, coletar dados analíticos e fornecer funcionalidades personalizadas.
+                </p>
+              </div>
+              <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+              <div id="dados_coletados" class="space-y-2">
+                  <h4 class="text-white w-full font-bold md:text-xl lg:text-xl py-2">2. Tipos de Cookies que Utilizamos</h4>
+                  <p class="font-bold">Cookies Essenciais:</p>
+                  <ul class="list-disc pl-5 space-y-2">
+                    <li>Necessários para o funcionamento básico do site, como navegação e acesso a áreas protegidas.</li>
+                  </ul>
+                  <p class="font-bold">Cookies de Desempenho:</p>
+                  <ul class="list-disc pl-5 space-y-2">
+                    <li>Coletam informações sobre como você usa nosso site (ex.: páginas mais visitadas) para melhorarmos nossos serviços.Exemplo: Google Analytics.</li>
+                  </ul>
+              </div>
+              <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+              <div id="finalidade" class="space-y-2">
+                <h4 class="text-white w-full font-bold md:text-xl lg:text-xl py-2">3. Como Gerenciamos os Cookies?</h4>
+                <p>Ao visitar nosso site pela primeira vez, você verá um banner pedindo consentimento para o uso de cookies opcionais. Você pode:</p>
+                <ul class="list-disc pl-5 space-y-2">
+                  <li>Aceitar todos os cookies;</li>
+                  <li>Configurar preferências e rejeitar cookies opcionais.</li>
+                </ul>
+                <p>Além disso, é possível gerenciar cookies diretamente no seu navegador, ajustando as configurações ou excluindo cookies armazenados.</p>
+              </div>
+              <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+              <div id="compartilhamento" class="space-y-2">
+                <h4 class="text-white w-full font-bold md:text-xl lg:text-xl py-2">4. Alterações nesta Política de Cookies</h4>
+                <p>Podemos atualizar nossa Política de Cookies para refletir mudanças em nossas práticas. A data da última atualização estará sempre indicada no topo da página.</p>
+              </div>
+              <hr class="h-[0.5px] bg-gray-300 border-0 my-6">
+            </section>
+          </div>
+        </section>
+{% endblock %}

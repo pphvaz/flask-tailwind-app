@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">  <!-- For Flask -->
+    <script src="../static/js/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="font-varta">
+    <main>
+        <header>
+            <nav class="lg:fixed lg:flex lg:w-full bg-[#100d23]">
+                <div class="w-full mx-auto px-2 sm:px-6 lg:px-8">
+                <div class="relative flex h-16 items-center justify-between">
+                    <div class="absolute inset-y-0 left-0 flex items-center lg:hidden">
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-button" type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Open main Menu</span>
+                        <!--
+                        Icon when menu is closed.
+
+                        Menu open: "hidden", Menu closed: "block"
+                        -->
+                        <svg id="open-menu" class="block size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <!--
+                        Icon when menu is open.
+
+                        Menu open: "block", Menu closed: "hidden"
+                        -->
+                        <svg id="close-menu" class="hidden size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                        </button>
+                    </div>
+                    <div class="flex flex-1 items-center md:items-stretch ">
+                    <div class="hidden sm:ml-6 lg:block">
+                        <a class="text-white font-medium text-lg px-6 py-2 rounded-md hover:text-azul-escura transition duration-300 hover:bg-white" href="#simulacao">Simulador de Investimentos</a>
+                        <a class="hidden text-white font-medium text-lg px-6 py-2 rounded-md hover:text-azul-escura transition duration-300 hover:bg-white" href="#ebook">Ebook Gratuito</a>
+                        <a class="hidden text-white font-medium text-lg px-6 py-2 rounded-md hover:text-azul-escura transition duration-300 hover:bg-white" href="">Contato</a>
+                    </div>
+                    </div>
+                    <div class="flex items-center text-white">
+                        <div class="hidden md:flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                              <circle cx="8" cy="8" r="8" fill="#00FF00" style="filter: brightness(1.2);" />
+                            </svg>                  
+                            <span class="text-white text-center text-sm">Disponível para reunião</span>
+                          </div>
+                        <div class="hover:animate-shake absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                            <a type="button" href="https://wa.me/+5512996189706" class="relative rounded-full p-1 focus:outline-none focus:outline-white focus:ring-1 focus:ring-white hover:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                <span class="absolute -inset-1.5"></span>
+                                <span class="sr-only">WhatsApp link</span>
+                                <svg class="h-8 w-8" width="800px" height="800px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16 31C23.732 31 30 24.732 30 17C30 9.26801 23.732 3 16 3C8.26801 3 2 9.26801 2 17C2 19.5109 2.661 21.8674 3.81847 23.905L2 31L9.31486 29.3038C11.3014 30.3854 13.5789 31 16 31ZM16 28.8462C22.5425 28.8462 27.8462 23.5425 27.8462 17C27.8462 10.4576 22.5425 5.15385 16 5.15385C9.45755 5.15385 4.15385 10.4576 4.15385 17C4.15385 19.5261 4.9445 21.8675 6.29184 23.7902L5.23077 27.7692L9.27993 26.7569C11.1894 28.0746 13.5046 28.8462 16 28.8462Z" fill="#BFC8D0"/>
+                                <path d="M28 16C28 22.6274 22.6274 28 16 28C13.4722 28 11.1269 27.2184 9.19266 25.8837L5.09091 26.9091L6.16576 22.8784C4.80092 20.9307 4 18.5589 4 16C4 9.37258 9.37258 4 16 4C22.6274 4 28 9.37258 28 16Z" fill="url(#paint0_linear_87_7264)"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 18.5109 2.661 20.8674 3.81847 22.905L2 30L9.31486 28.3038C11.3014 29.3854 13.5789 30 16 30ZM16 27.8462C22.5425 27.8462 27.8462 22.5425 27.8462 16C27.8462 9.45755 22.5425 4.15385 16 4.15385C9.45755 4.15385 4.15385 9.45755 4.15385 16C4.15385 18.5261 4.9445 20.8675 6.29184 22.7902L5.23077 26.7692L9.27993 25.7569C11.1894 27.0746 13.5046 27.8462 16 27.8462Z" fill="white"/>
+                                <path d="M12.5 9.49989C12.1672 8.83131 11.6565 8.8905 11.1407 8.8905C10.2188 8.8905 8.78125 9.99478 8.78125 12.05C8.78125 13.7343 9.52345 15.578 12.0244 18.3361C14.438 20.9979 17.6094 22.3748 20.2422 22.3279C22.875 22.2811 23.4167 20.0154 23.4167 19.2503C23.4167 18.9112 23.2062 18.742 23.0613 18.696C22.1641 18.2654 20.5093 17.4631 20.1328 17.3124C19.7563 17.1617 19.5597 17.3656 19.4375 17.4765C19.0961 17.8018 18.4193 18.7608 18.1875 18.9765C17.9558 19.1922 17.6103 19.083 17.4665 19.0015C16.9374 18.7892 15.5029 18.1511 14.3595 17.0426C12.9453 15.6718 12.8623 15.2001 12.5959 14.7803C12.3828 14.4444 12.5392 14.2384 12.6172 14.1483C12.9219 13.7968 13.3426 13.254 13.5313 12.9843C13.7199 12.7145 13.5702 12.305 13.4803 12.05C13.0938 10.953 12.7663 10.0347 12.5 9.49989Z" fill="white"/>
+                                <defs>
+                                <linearGradient id="paint0_linear_87_7264" x1="26.5" y1="7" x2="4" y2="28" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#5BD066"/>
+                                <stop offset="1" stop-color="#27B43E"/>
+                                </linearGradient>
+                                </defs>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- Mobile menu, show/hide based on menu state. -->
+                <div class="lg:hidden" id="mobile-menu">
+                <div class="space-y-1 px-2 pb-3 pt-2">
+                    <a href="#simulacao" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:text-azul-escura transition duration-300 hover:bg-white">Simulador de Investimentos</a>
+                    <a href="#" class="hidden rounded-md px-3 py-2 text-base font-medium text-white hover:text-azul-escura transition duration-300 hover:bg-white">Ebook Gratuito</a>
+                    <a href="#" class="hidden rounded-md px-3 py-2 text-base font-medium text-white hover:text-azul-escura transition duration-300 hover:bg-white">Contato</a>
+                </div>
+                </div>
+            </nav>
+        </header>
+        <section>
+            {% block content %}{% endblock %}
+        </section>
+    </main>
+    <section class="py-10 flex bg-azul-darkblue text-white">
+        <div class="flex flex-col lg:flex-row gap-6 items-center lg:w-11/12 mx-auto">
+            <div class="lg:w-3/5 mx-auto flex items-center p-4 lg:text-center text-xs font-extralight">
+            <h1 class="lg:w-4/5 mx-auto">Todas as informações aqui apresentadas são de caráter informativo e estão sujeitas a alterações. 
+                Investimentos possuem riscos e podem resultar em perdas financeiras. Consulte um profissional antes de investir.</h1>
+            </div>
+            <div class="flex-1 text-center lg:text-start lg:border-l lg:w-3/5 border-white p-4 text-xs items-center flex flex-col">
+            <div class="flex flex-col w-full space-y-0.5">
+                <h1 class="font-bold">Alta Vista</h1>
+                <p>Av. São João, 2200, CEP: 12242-000</p>
+                <p>Ed. Colinas Green Tower, 11º Andar - Sala 1104</p>
+                <p>São José dos Campos</p>
+            </div>
+            <br>
+            <div class="flex flex-col w-full space-y-0.5">
+                <a class="w-full underline" href="/politica_de_privacidade"><p>Política de Privacidade</p></a>
+                <a class="w-full underline" href="/politica_de_cookies"><p>Política de Cookies</p></a>
+            </div>
+            </div>
+        </div>
+    </section>
+    <div id="cookies" 
+        class="fixed bottom-4 lg:left-1/2 transform lg:-translate-x-1/2 hidden lg:w-3/5 bg-gray-900 text-white flex p-8 justify-between items-center gap-4 transition-opacity duration-700">
+        <p class="text-sm">
+            Este site utiliza cookies e processa dados pessoais em conformidade com nossa
+            <a href="politica_de_cookies" class="underline text-blue-400">Política de Cookies</a>. 
+            Ao continuar a navegação, você concorda e está ciente desses termos.
+        </p>
+        <button id="acceptCookies" class="bg-blue-500 hover:bg-blue-600 text-white text-sm py-2 px-4 rounded">Continuar</button>
+    </div>
+</body>
