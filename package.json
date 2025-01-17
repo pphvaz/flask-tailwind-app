@@ -1,0 +1,12 @@
+{
+    "devDependencies": {
+      "tailwindcss": "^3.4.15"
+    },
+    "scripts": {
+      "build:css": "npx tailwindcss -i ./static/css/styles.css -o ./static/css/output.css",
+      "watch:css": "npx tailwindcss -i ./static/css/styles.css -o ./static/css/output.css --watch"
+    },
+    "dependencies": {
+      "aos": "^2.3.4"
+    }
+  }

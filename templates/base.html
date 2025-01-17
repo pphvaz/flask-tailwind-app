@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">  <!-- For Flask -->
-    <script src="../static/js/script.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <script src="static/js/menu.js" defer></script>
+    <script src="static/js/cookies.js" defer></script>
+    <script src="static/js/formatting.js" defer></script>
+    <script src="static/js/submitForm.js" defer></script>
+    <script src="static/js/simulator.js" defer></script>
+    <script src="static/js/qa.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 </head>
 <body class="font-varta">
     <main>
@@ -101,14 +106,13 @@
             </div>
             <br>
             <div class="flex flex-col w-full space-y-0.5">
-                <a class="w-full underline" href="/politica_de_privacidade"><p>Política de Privacidade</p></a>
-                <a class="w-full underline" href="/politica_de_cookies"><p>Política de Cookies</p></a>
+                <a class="w-full underline" href="/privacidade"><p>Política de Privacidade</p></a>
+                <a class="w-full underline" href="/cookies"><p>Política de Cookies</p></a>
             </div>
             </div>
         </div>
     </section>
-    <div id="cookies" 
-        class="fixed bottom-4 lg:left-1/2 transform lg:-translate-x-1/2 hidden lg:w-3/5 bg-gray-900 text-white flex p-8 justify-between items-center gap-4 transition-opacity duration-700">
+    <div id="cookies" class="fixed bottom-4 lg:left-1/2 transform lg:-translate-x-1/2 hidden lg:w-3/5 bg-gray-900 text-white flex p-8 justify-between items-center gap-4 transition-opacity duration-700">
         <p class="text-sm">
             Este site utiliza cookies e processa dados pessoais em conformidade com nossa
             <a href="politica_de_cookies" class="underline text-blue-400">Política de Cookies</a>. 
