@@ -13,7 +13,7 @@ FROM node:18-slim AS node-base
 WORKDIR /app
 
 # Copy Tailwind configuration and package files
-COPY package.json package-lock.json tailwind.config.js /app/
+COPY package.json tailwind.config.js /app/
 
 # Install Node.js dependencies
 RUN npm install

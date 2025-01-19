@@ -1,5 +1,13 @@
-document.getElementById('adicionar_cliente').addEventListener('click', async (event) => {
+document.addEventListener("DOMContentLoaded", function() { 
+    const recaptchaWidgetId = grecaptcha.render('recaptcha-container', {
+        'sitekey': '6LfzgbwqAAAAALd7Bl362HUQ6G9jzEujHoeR52Jw',
+        'theme': 'light',
+    });
+
+
+    document.getElementById('adicionar_cliente').addEventListener('click', async (event) => {
     event.preventDefault();
+    console.log(grecaptcha);
     const form = document.getElementById('form-contato');
     const formData = new FormData(form);
 
@@ -15,15 +23,26 @@ document.getElementById('adicionar_cliente').addEventListener('click', async (ev
         return;
     }
 
-    try {
-        // Send POST request with form data
+    const recaptchaResponse = grecaptcha.getResponse(recaptchaWidgetId);
+
+    if (!recaptchaResponse) {
+        Swal.fire({
+            title: 'Oops!',
+            text: 'Falha ao verificar o reCAPTCHA. Por favor, tente novamente.',
+            icon: 'warning',
+            confirmButtonText: 'OK',
+        });
+        return;
+    }
+    console.log(recaptchaResponse);
+    formData.append('recatcha_token', recaptchaResponse);
+
+    try { 
         const response = await fetch('lead/cadastrar_lead', {
             method: 'POST',
             body: formData,
         });
-        console.log(response)
         if (response.ok) {
-            
             const responseData = await response.json();
             Swal.fire({
                 title: 'Success!',
@@ -33,7 +52,6 @@ document.getElementById('adicionar_cliente').addEventListener('click', async (ev
             });
             form.querySelectorAll('input, select');
             form.reset();
-
         } else {
             const errorData = await response.json();
             Swal.fire({title:"Error",text:errorData.Erro || "Aconteceu um erro",icon:'error', confirmButtonText:'Ok'});
@@ -48,4 +66,6 @@ document.getElementById('adicionar_cliente').addEventListener('click', async (ev
             confirmButtonText: 'OK',
         });
     }
+    });
+
 });

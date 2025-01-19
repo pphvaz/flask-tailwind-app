@@ -7,7 +7,7 @@ import requests
 BULK_STATUS_FILE = "data/bulk_status.json"
 
 # Common Email Configurations
-from_mail = "MS_SmgJH7@trial-pxkjn41vze64z781.mlsender.net"
+from_mail = os.getenv('MAILERSEND_USER')
 from_name = "Assessoria Daniel Salum"
 email_assessor = "pedrohvs.alves1@gmail.com"
 

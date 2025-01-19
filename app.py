@@ -8,7 +8,7 @@ from services.financial_data import validate_financial_data
 from services.email_service import verificar_bulk_status
 
 app = Flask(__name__)
-app.config.from_object('config.Config')
+
 
 # Register blueprints
 app.register_blueprint(home_bp)

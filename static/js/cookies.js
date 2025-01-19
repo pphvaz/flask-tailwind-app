@@ -4,7 +4,7 @@ const cookiesBanner = document.getElementById("cookies");
 function loadGoogleAnalytics() {
     if (localStorage.getItem("cookiesAccepted") === "true") {
         const script = document.createElement("script");
-        script.src = "https://www.googletagmanager.com/gtag/js?id=G-FSMV8QZGFQ";
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-91CPGD8BBJ";
         script.async = true;
         document.head.appendChild(script);
 
@@ -12,7 +12,7 @@ function loadGoogleAnalytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag() { dataLayer.push(arguments); }
             gtag("js", new Date());
-            gtag("config", "G-FSMV8QZGFQ");
+            gtag("config", "G-91CPGD8BBJ");
         };
     }
 }
