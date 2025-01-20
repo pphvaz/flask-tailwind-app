@@ -2,8 +2,7 @@ from flask import jsonify
 import os
 from mailersend import emails
 
-if os.getenv("FLASK_ENV") != "production":
-    api_key = os.getenv('MAILERSEND_API_KEY')
+api_key = os.getenv('MAILERSEND_API_KEY')
 
 def enviar_lista_emails(mail_list):
     if not api_key:
