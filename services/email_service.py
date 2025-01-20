@@ -7,6 +7,8 @@ import logging
 
 LISTA_EMAILS = "data/LISTA_EMAILS.json"
 
+api_key = os.getenv('MAILERSEND_API_KEY')
+
 # Configure logger
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -115,7 +117,7 @@ def verificar_lista_emails():
         return
 
     headers = {
-        "Authorization": f"Bearer {os.getenv('MAILERSEND_API_KEY')}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
     }
     
