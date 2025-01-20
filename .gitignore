@@ -34,3 +34,6 @@ yarn.lock
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
+
+cert.pem
+key.pem

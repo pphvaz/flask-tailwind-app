@@ -16,6 +16,9 @@
       <div class="flex w-full sm:w-4/6 md:w-5/6 xl:w-2/5 flex-col items-center space-y-4">
         <div class="bg-white w-full p-2 lg:p-12 rounded-lg border sm:text-left shadow-2xl">
           <form class="w-full space-y-4" id="form-contato">
+            <!-- CSRF Token -->
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
             <header class="text-center">
               <h1 class="text-lg lg:text-2xl">Tire suas dúvidas, marque uma 
                 <span class="font-bold">reunião exclusiva</span>
@@ -64,13 +67,14 @@
                   <option value="5000">R$ 2000 - R$ 5000</option>
                   <option value="10000">Mais de R$ 5000</option>
                 </select>
-              </div>
-            
-            <div id="recaptcha-container"></div>
             </div>
-            <button id="adicionar_cliente" type="button" class="text-white w-full p-4 hover:scale-105 transition-transform rounded-tr-md rounded-bl-md text-lg font-bold bg-azul-forms shadow-xl">
-              Converse com Daniel Salum
-            </button>
+            <div class="g-recaptcha" id="recaptcha-container" data-sitekey="6Len2bwqAAAAADnGa7HIbjUlxuiOK9w8Zl-pewHQ"></div>
+            </div>
+            <div>
+              <button id="adicionar_cliente" type="button" class="text-white w-full p-4 hover:scale-105 transition-transform rounded-tr-md rounded-bl-md text-lg font-bold bg-azul-forms shadow-xl">
+                Converse com Daniel Salum
+              </button>
+            </div>
           </form>
         </div>
         <div class="md:hidden flex items-center space-x-2">
@@ -138,6 +142,7 @@
     <h1 class="text-3xl font-bold sm:text-5xl">Simulação de Investimentos</h1>
   </div>
   <form id="simulator-form" class="md:w-4/5 lg:w-3/5 mx-auto">
+     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="space-y-4">
       <div class="flex flex-col md:grid md:grid-cols-2 md:grid-rows-2 md:gap-4">
         <div class="flex space-y-1 flex-col text-start">
@@ -183,12 +188,14 @@
   </div>
   <div id="disclaimer" class="hidden space-y-4">
     <div class="font-extralight text-xs text-gray-400 p-0 m-0">
+      {% autoescape true %}
       <p style="font-size: 0.9em; color: gray;">Valores de referência: Selic: {{ taxa_selic }}% a.a. CDI: {{ taxa_cdi }}% a.a. Poupança: {{ poupanca }}% a.a.</p>
       <p style="font-size: 0.9em; color: gray;">Dados obtidos através de API pública do Banco Central do Brasil. Última atualização: {{ atualizacao }}</p>
       <p style="font-size: 0.9em; color: gray;">
           * Os valores apresentados são médias dos dados obtidos no último ano. 
           Rendimentos passados não garantem rentabilidade futura. Sempre consulte um especialista antes de tomar decisões financeiras.
       </p>
+      {% endautoescape %}
     </div>
     <div class="flex text-center mx-auto">
       <a href="#form-contato" class="w-full lg:w-3/6 mx-auto text-white p-4 hover:bg-azul-darkblue transition-transform rounded-tr-md rounded-bl-md bg-azul-escura md:text-lg font-bold shadow-xl">Agende uma reunião gratuitamente</a>

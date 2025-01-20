@@ -1,17 +1,16 @@
 from flask import Blueprint, request, jsonify
 from services.email_service import enviar_emails
-import threading
 import os
 import requests
 
 recaptcha_secret = os.getenv('RECAPTCHA_SECRET_KEY')
+recaptcha__test_secret = os.getenv('RECAPTCHA_TEST_SECRET_KEY')
 
 lead_bp = Blueprint('lead', __name__)
 
 @lead_bp.route('/cadastrar_lead', methods=['POST'])
 def register_lead():
-    print("registrando......")
-    recaptcha_token = request.form.get('recatcha_token')
+    recaptcha_token = request.form.get('recaptcha_token')
     if not recaptcha_token:
         return jsonify({'error': 'reCAPTCHA token ausente'}), 400
     response = validarRecaptcha(recaptcha_token)
@@ -34,14 +33,14 @@ def register_lead():
     except ValueError:
         return jsonify({"error": "Patrimônio e aporte mensal devem ser valores numéricos."}), 400
 
-    response = enviar_emails(nome, telefone, email, patrimonio, aporte_mensal, False)
+    # response = enviar_emails(nome, telefone, email, patrimonio, aporte_mensal, False)
     
     return jsonify({"message": "Solicitação recebida com sucesso!"}), 200
 
 def validarRecaptcha(recaptcha_token):
     recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify'
     payload = {
-        'secret': recaptcha_secret,
+        'secret': recaptcha__test_secret,
         'response': recaptcha_token
     }
     try:
