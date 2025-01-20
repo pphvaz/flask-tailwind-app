@@ -3,123 +3,159 @@ from flask import jsonify, json
 from datetime import datetime
 import os
 import requests
+import logging
 
-BULK_STATUS_FILE = "data/bulk_status.json"
+LISTA_EMAILS = "data/LISTA_EMAILS.json"
+
+# Configure logger
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Common Email Configurations
 from_mail = os.getenv('MAILERSEND_USER')
 from_name = "Assessoria Daniel Salum"
 email_assessor = "pedrohvs.alves1@gmail.com"
 
+def ler_lista_emails():
+    """Função para ler a lista de emails do arquivo."""
+    try:
+        with open(LISTA_EMAILS, "r") as f:
+            if os.stat(LISTA_EMAILS).st_size > 0:
+                return json.load(f)
+            else:
+                logger.info("Arquivo vazio, inicializando lista.")
+                return []
+    except FileNotFoundError:
+        logger.warning("Arquivo não encontrado, criando uma nova lista.")
+        return []
+
+def salvar_lista_emails(bulk_email_id, mail_list, status_text, status_code, cliente, message):
+    """Função para salvar a lista de emails no arquivo."""
+    logger.info("Salvando lista de emails...")
+    lista_emails = ler_lista_emails()
+    
+    # Preparar dados para salvar
+    data = {
+        "bulk_email_id": bulk_email_id,
+        "emails": mail_list,
+        "status": status_text,
+        "status_code": status_code,
+        "datahora": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "cliente": cliente,
+        "tentativas": 1,
+        "message": message
+    }
+    
+    lista_emails.append(data)
+    
+    with open(LISTA_EMAILS, "w") as f:
+        json.dump(lista_emails, f, indent=4)
+    logger.info(f"{len(lista_emails)} emails salvos.")
+
 def enviar_emails(nome, telefone, email, patrimonio, aporte_mensal, reenvio):
+    """Função para enviar os e-mails para cliente e assessor."""
     # Create bulk email list
     mail_list = []
 
     cliente = {
-        "nome":nome,
-        "telefone":telefone,
-        "email":email,
-        "patrimonio":patrimonio,
-        "aporte_mensal":aporte_mensal
+        "nome": nome,
+        "telefone": telefone,
+        "email": email,
+        "patrimonio": patrimonio,
+        "aporte_mensal": aporte_mensal
     }
-    
-    # Configure assessor email
-    assessor_email = configurar_email(
-        recipient={"name": "Daniel Salum", "email": email_assessor},
-        subject=f"Boas notícias: Novo lead, {nome}",
-        text_content=create_text_assessor(nome, telefone, email, patrimonio, aporte_mensal),
-        html_content=create_html_assessor(nome, telefone, email, patrimonio, aporte_mensal)
-    )
-    mail_list.append(assessor_email)
-    
-    # Configure client email
-    client_email = configurar_email(
-        recipient={"name": nome, "email": email},
-        subject=f"Olá, {nome}! Sua solicitação foi recebida com sucesso",
-        text_content=create_text_cliente(nome),
-        html_content=create_html_cliente(nome)
-    )
-    mail_list.append(client_email)
-    
-    response = email_utils.enviar_lista_emails(mail_list)
 
-    if not reenvio:
-        status, json_str = response.split("\n")  
-
-        if int(status) == 202:
-            bulk_email_id = json.loads(json_str)['bulk_email_id']
-            salvar_bulk_status(bulk_email_id, mail_list, "processando",cliente)
-        else:
-            salvar_bulk_status(response, mail_list, "falha_no_envio",cliente)
-
-    return response
-    
-def salvar_bulk_status(bulk_email_id, mail_list, status,cliente):
-    bulk_data = []
-    data = {
-        "bulk_email_id":bulk_email_id,
-        "emails":mail_list,
-        "status":status,
-        "datahora": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "cliente": cliente,
-        "tentativas":1
-    }
+    # Configure emails
     try:
-        with open(BULK_STATUS_FILE, "r") as f:
-            if f.read(1):
-                f.seek(0)
-                bulk_data = json.load(f)
-                print("NÃO ESTÁ VAZIO")
+        # Assessor email
+        assessor_email = configurar_email(
+            recipient={"name": "Daniel Salum", "email": email_assessor},
+            subject=f"Boas notícias: Novo lead, {nome}",
+            text_content=create_text_assessor(nome, telefone, email, patrimonio, aporte_mensal),
+            html_content=create_html_assessor(nome, telefone, email, patrimonio, aporte_mensal)
+        )
+        mail_list.append(assessor_email)
+
+        # Client email
+        client_email = configurar_email(
+            recipient={"name": nome, "email": email},
+            subject=f"Olá, {nome}! Sua solicitação foi recebida com sucesso",
+            text_content=create_text_cliente(nome),
+            html_content=create_html_cliente(nome)
+        )
+        mail_list.append(client_email)
+
+        # Enviar e-mails
+        response = email_utils.enviar_lista_emails(mail_list)
+
+        status_code = response.status_code
+        message = response.json().get('message', 'Sem mensagem')
+
+        if not reenvio:
+            if response.status_code == 202:
+                # salvar o e-mail na lista para verificar se o status é completed.
+                bulk_email_id = response.json().get('bulk_email_id')
+                salvar_lista_emails(bulk_email_id, mail_list, "processando", status_code, cliente, message)
             else:
-                print("ELSE ZERANDO...")
-                bulk_data = []
-    except (FileNotFoundError):
-        print("EXCEPT ZERANDO...")
-        bulk_data = []
-    
-    bulk_data.append(data)
-    with open(BULK_STATUS_FILE, "w") as f:
-        json.dump(bulk_data, f, indent=4)
+                salvar_lista_emails(None, mail_list, "falha_no_envio", status_code, cliente, message)
+        else:
+            return response
 
-def verificar_bulk_status():
-    print("VERIFICANDO LISTA DE EMAILS \n")
-    try:
-        with open(BULK_STATUS_FILE, "r") as f:
-            bulk_data = json.load(f)
-    except (FileNotFoundError):
+    except Exception as e:
+        logger.error(f"Erro ao enviar e-mails: {str(e)}")
+
+
+def verificar_lista_emails():
+    """Função para verificar a lista de emails e processá-los."""
+    logger.info("Verificando lista de emails...")
+    lista_emails = ler_lista_emails()
+    
+    if not lista_emails:
+        logger.info("Nenhum email na lista para processar.")
         return
+
     headers = {
         "Authorization": f"Bearer {os.getenv('MAILERSEND_API_KEY')}",
         "Content-Type": "application/json"
     }
-    for entry in bulk_data[:]:
-        if entry["status"] != "completed" and entry["bulk_email_id"]:
-            url = f"https://api.mailersend.com/v1/bulk-email/{entry['bulk_email_id']}"
-            response = requests.get(url, headers=headers)
-            print("Pesquisando...\n")
-            if response.status_code == 200:
-                response_data = response.json()
-                if response_data['data']['state'] == "completed":
-                    print("removing....")
-                    bulk_data.remove(entry)
-
-                else:
-                    print("REENVIANDO EMAIL ENCONTRADO...")
-                    email_utils.enviar_lista_emails(entry['emails'])
-            else:
-                print("REENVIANDO EMAIL NÃO ENCONTRADO...\n")
-                # Criar nova solicitação de email...
-                enviar_emails(entry['cliente']['nome'], entry['cliente']['telefone'], entry['cliente']['email'], entry['cliente']['patrimonio'], entry['cliente']['aporte_mensal'], True)
-            entry['tentativas'] = entry['tentativas'] + 1
+    
+    for entry in lista_emails[:]:
+        if entry["status"] not in ["completed"]:
+            processar_email(entry, headers, lista_emails)
         else:
-            print("EMAIL JÁ ENVIADO...")
-            bulk_data.remove(entry)
-    with open(BULK_STATUS_FILE, "w") as f:
-        print(f"SALVANDO JSON.DUMP COM OS DADOS: {len(bulk_data)} emails.")
-        json.dump(bulk_data, f, indent=4)
+            logger.info(f"Email com bulk_email_id {entry['bulk_email_id']} já enviado ou com falha.")
+
+    # Salvar lista atualizada
+    with open(LISTA_EMAILS, "w") as f:
+        logger.info(f"Salvando {len(lista_emails)} emails restantes.")
+        json.dump(lista_emails, f, indent=4)
+
+def processar_email(entry, headers, lista_emails):
+    """Função para processar cada email individualmente."""
+    url = f"https://api.mailersend.com/v1/bulk-email/{entry['bulk_email_id']}"
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        response_data = response.json()
+        if response_data['data']['state'] == "completed":
+            logger.info(f"Email {entry['bulk_email_id']} concluído, removendo da lista.")
+            lista_emails.remove(entry)
+        else:
+            logger.info("Email ainda não concluído, reenviando...")
+            email_utils.enviar_lista_emails(entry['emails'])
+    else:
+        logger.warning(f"Falha ao verificar email {entry['bulk_email_id']}. Status: {response.status_code}.")
+        # Criar nova solicitação de email em caso de falha
+        response = enviar_emails(entry['cliente']['nome'], entry['cliente']['telefone'], entry['cliente']['email'], entry['cliente']['patrimonio'], entry['cliente']['aporte_mensal'], True)
+        print(response)
+        if response.status_code == 202:
+            logger.info("Email reenviado com sucesso.\n")
+            entry['bulk_email_id'] = response.json().get('bulk_email_id')
+            entry['status'] = "processando"
+    
+    entry['tentativas'] += 1
 
 def configurar_email(recipient, subject, text_content, html_content):
-    """BULK_STATUS_FILE
+    """LISTA_EMAILS
     Configures an individual email object.
     """
     return {

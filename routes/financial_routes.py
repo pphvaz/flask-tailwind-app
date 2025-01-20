@@ -1,6 +1,5 @@
 from flask import Blueprint, request, jsonify, json
 from services.financial_service import calcular_juros_compostos
-from models import financial_data
 
 financial_bp = Blueprint('financial', __name__)
 

@@ -5,28 +5,37 @@ from routes.lead_routes import lead_bp
 import services.financial_data as finantial
 from apscheduler.schedulers.background import BackgroundScheduler
 from services.financial_data import validate_financial_data
-from services.email_service import verificar_bulk_status
+from services.email_service import verificar_lista_emails
 from flask_wtf.csrf import CSRFProtect
 from dotenv import load_dotenv
 import logging
 from logging.handlers import RotatingFileHandler
 from flask_talisman import Talisman
 import os
+import sys
 
-load_dotenv()
+if os.getenv("FLASK_ENV") != "production":
+    load_dotenv()
 
-# Configure logging
-handler = RotatingFileHandler('error.log', maxBytes=100000, backupCount=3)
-handler.setLevel(logging.ERROR)
-logging.basicConfig(level=logging.ERROR, handlers=[handler])
-
-# Initialization
+# Initialize Flask app
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('CSRF_SECRET_KEY')
+
+# Set environment variables in app.config
 app.config['PREFERRED_URL_SCHEME'] = 'https'
+app.config['SECRET_KEY'] = os.getenv('CSRF_SECRET_KEY')
+app.config['MAILERSEND_API_KEY'] = os.getenv('MAILERSEND_API_KEY')
+app.config['RECAPTCHA_SECRET_KEY'] = os.getenv('RECAPTCHA_SECRET_KEY')
+app.config['MAILERSEND_USER'] = os.getenv('MAILERSEND_USER')
+
+app.config['ENVIROMENT'] = os.getenv('FLASK_ENV')
 
 # Use Talisman for enforcing HTTPS and adding security headers
-Talisman(app, content_security_policy=None)
+if app.config['ENVIROMENT'] == 'production':
+    Talisman(app, content_security_policy=None)
+
+handler = logging.StreamHandler(sys.stdout)
+handler.setLevel(logging.ERROR)
+logging.basicConfig(level=logging.ERROR, handlers=[handler])
 
 # CSRF protection
 csrf = CSRFProtect(app)
@@ -54,9 +63,8 @@ finantial.validate_financial_data()
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(validate_financial_data, 'interval', days=5)
-scheduler.add_job(verificar_bulk_status, 'interval', hours=4)
+scheduler.add_job(verificar_lista_emails, 'interval', hours=1)
 scheduler.start()
 
 if __name__ == "__main__":
-    app.run(ssl_context=('cert.pem', 'key.pem'))
-    # app.run(debug=False)
+    app.run(debug=False)

@@ -4,7 +4,6 @@ import os
 import requests
 
 recaptcha_secret = os.getenv('RECAPTCHA_SECRET_KEY')
-recaptcha__test_secret = os.getenv('RECAPTCHA_TEST_SECRET_KEY')
 
 lead_bp = Blueprint('lead', __name__)
 
@@ -33,14 +32,14 @@ def register_lead():
     except ValueError:
         return jsonify({"error": "Patrimônio e aporte mensal devem ser valores numéricos."}), 400
 
-    # response = enviar_emails(nome, telefone, email, patrimonio, aporte_mensal, False)
+    response = enviar_emails(nome, telefone, email, patrimonio, aporte_mensal, False)
     
     return jsonify({"message": "Solicitação recebida com sucesso!"}), 200
 
 def validarRecaptcha(recaptcha_token):
     recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify'
     payload = {
-        'secret': recaptcha__test_secret,
+        'secret': recaptcha_secret,
         'response': recaptcha_token
     }
     try:

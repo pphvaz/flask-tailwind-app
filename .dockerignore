@@ -12,6 +12,7 @@ node_modules/
 
 # Ignorar arquivos de ambiente
 .env
+venv
 
 # Ignorar arquivos temporários
 *.tmp
