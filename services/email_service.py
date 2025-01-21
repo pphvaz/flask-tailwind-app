@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 # Common Email Configurations
 from_mail = os.getenv('MAILERSEND_USER')
 from_name = "Assessoria Daniel Salum"
-email_assessor = "pedrohvs.alves1@gmail.com"
+email_assessor = os.getenv('EMAIL_ASSESSOR')
 
 def ler_lista_emails():
     """Função para ler a lista de emails do arquivo."""
