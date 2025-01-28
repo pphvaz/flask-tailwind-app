@@ -24,12 +24,20 @@ class FinancialData:
         return self.data.get(key, None)
 
     def load_data_from_file(self):
-        if os.path.exists(DATA_FILE_PATH) and os.stat(DATA_FILE_PATH).st_size > 0:
-            try:
-                with open(DATA_FILE_PATH, 'r') as f:
-                    self.data = json.load(f)
-            except (json.JSONDecodeError, KeyError, ValueError) as e:
-                print(f"Error reading financial data from file: {e}")
+        if os.path.exists(DATA_FILE_PATH):
+            if os.stat(DATA_FILE_PATH).st_size > 0:
+                try:
+                    with open(DATA_FILE_PATH, 'r') as f:
+                        self.data = json.load(f)
+                except (json.JSONDecodeError, KeyError, ValueError) as e:
+                    print(f"Error reading financial data from file: {e}")
+                    fetch_and_calculate_averages()
+            else:
+                print("Data file is empty. Fetching new data.")
+                fetch_and_calculate_averages()
+        else:
+            print("Data file does not exist. Fetching new data.")
+            fetch_and_calculate_averages()
 
 
 def fetch_and_calculate_averages():
@@ -50,8 +58,8 @@ def fetch_and_calculate_averages():
             results[key] = None
 
     financial_data = {
+        'com assessor': results.get('cdi') + 2,
         'cdi': results.get('cdi'),
-        'selic': results.get('selic'),
         'poupanca': results.get('poupanca') * 12,
         'last_update': hoje.strftime('%d/%m/%Y %H:%M:%S')
     }

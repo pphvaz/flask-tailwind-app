@@ -89,23 +89,27 @@ def enviar_emails(nome, telefone, email, patrimonio, aporte_mensal, reenvio):
 
         # Enviar e-mails
         response = email_utils.enviar_lista_emails(mail_list)
-
-        status_code = response.status_code
-        message = response.json().get('message', 'Sem mensagem')
-
         if not reenvio:
-            if response.status_code == 202:
-                # salvar o e-mail na lista para verificar se o status é completed.
-                bulk_email_id = response.json().get('bulk_email_id')
+            if isinstance(response, str):
+                status_code, message = map(str.strip, response.split("\n"))
+                status_code = int(status_code)
+                response_data = json.loads(message)
+
+            else:  # Response is an HTTP response object
+                status_code = response.status_code
+                response_data = response.json()
+                message = response_data.get('message', 'Sem mensagem')
+
+            # Handle success or failure
+            if status_code == 202:
+                bulk_email_id = response_data.get('bulk_email_id')
                 salvar_lista_emails(bulk_email_id, mail_list, "processando", status_code, cliente, message)
             else:
                 salvar_lista_emails(None, mail_list, "falha_no_envio", status_code, cliente, message)
-        else:
-            return response
-
     except Exception as e:
         logger.error(f"Erro ao enviar e-mails: {str(e)}")
-
+        salvar_lista_emails(None, mail_list, "falha_no_envio", status_code, cliente, message)
+        
 
 def verificar_lista_emails():
     """Função para verificar a lista de emails e processá-los."""

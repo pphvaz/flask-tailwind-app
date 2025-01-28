@@ -48,10 +48,9 @@
                 <label class="font-medium mb-1" for="">Patrimônio que deseja investir</label>
                 <select required name="patrimonio" class="w-full font-normal py-2 text-md border-b border-black focus:outline-none focus:outline-white focus:ring-1 focus:ring-white hover:ring-2 hover:ring-black focus:ring-offset-2 focus:ring-offset-azul-escura bg-azul-input">
                   <option hidden selected value="">Selecionar</option>
-                  <option value="10000">Até R$ 10.000</option>
-                  <option value="50000">R$ 10.000 - R$ 50.000</option>
-                  <option value="200000">R$ 50.000 - R$ 200.000</option>
-                  <option value="500000">R$ 200.000 - R$ 500.000</option>
+                  <option value="100000">Até R$ 100.000</option>
+                  <option value="50000">R$ 100.000 - R$ 300.000</option>
+                  <option value="200000">R$ 300.000 - R$ 500.000</option>
                   <option value="1000000">Mais de R$ 500.000</option>
                 </select>
               </div>
@@ -61,10 +60,9 @@
                 <label class="font-medium mb-1" for="">Aporte mensal disponível para investimento</label>
                 <select required name="mensal" class="w-full font-normal py-2 text-md border-b border-black focus:outline-none focus:outline-white focus:ring-1 focus:ring-white hover:ring-2 hover:ring-black focus:ring-offset-2 focus:ring-offset-azul-escura bg-azul-input">
                   <option hidden selected value="">Selecionar</option>
-                  <option value="500">Até R$ 500</option>
-                  <option value="1000">R$ 500 - R$ 1000</option>
-                  <option value="2000">R$ 1000 - R$ 2000</option>
-                  <option value="5000">R$ 2000 - R$ 5000</option>
+                  <option value="500">Até R$ 2000</option>
+                  <option value="1000">R$ 2000 - R$ 3000</option>
+                  <option value="2000">R$ 3000 - R$ 5000</option>
                   <option value="10000">Mais de R$ 5000</option>
                 </select>
             </div>
@@ -75,10 +73,11 @@
                 Converse com Daniel Salum
               </button>
             </div>
+            <p class="text-xs ">Tratamos os dados pessoais de acordo com a LGPD (Lei 13.709/18). Leia a nossa <a class="underline" href="/privacidade">Política de Privacidade</a>.</p>
           </form>
         </div>
         <div class="md:hidden flex items-center space-x-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="blink">
             <circle cx="8" cy="8" r="8" fill="#00FF00" style="filter: brightness(1.2);" />
           </svg>                  
           <span class="text-white text-center text-xl">Disponível para reunião</span>
@@ -189,7 +188,7 @@
   <div id="disclaimer" class="hidden space-y-4">
     <div class="font-extralight text-xs text-gray-400 p-0 m-0">
       {% autoescape true %}
-      <p style="font-size: 0.9em; color: gray;">Valores de referência: Selic: {{ taxa_selic }}% a.a. CDI: {{ taxa_cdi }}% a.a. Poupança: {{ poupanca }}% a.a.</p>
+      <p style="font-size: 0.9em; color: gray;">Valores de referência:CDI: {{ taxa_cdi }}% a.a. Poupança: {{ poupanca }}% a.a.</p>
       <p style="font-size: 0.9em; color: gray;">Dados obtidos através de API pública do Banco Central do Brasil. Última atualização: {{ atualizacao }}</p>
       <p style="font-size: 0.9em; color: gray;">
           * Os valores apresentados são médias dos dados obtidos no último ano. 

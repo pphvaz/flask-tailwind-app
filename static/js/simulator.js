@@ -74,7 +74,7 @@ function createCard(item) {
 
   div.innerHTML = `
       <div id="card space-y-2 ${isCustomReference ? '' : 'text-white'}">
-          <h3 id="taxa_referencia" class="font-extrabold text-2xl text-start py-2">Rendendo ${item.referencia}</h3>
+          <h3 id="taxa_referencia" class="font-extrabold text-2xl text-start py-2">${item.referencia}</h3>
           <div class="flex gap-4 flex-col md:flex-row justify-around mx-auto">
               ${createCardColumn(item.referencia, 'total_acumulado', 'Total Acumulado', isCustomReference)}
               ${createCardColumn(item.referencia, 'total_investido', 'Total Investidos', isCustomReference)}

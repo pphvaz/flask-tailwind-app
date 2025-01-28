@@ -16,6 +16,15 @@
     <script src="static/js/simulator.js" defer></script>
     <script src="static/js/qa.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <style>
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .blink {
+            animation: blink 1.4s infinite;
+        }
+    </style>
 </head>
 <body class="font-varta">
     <main>
@@ -55,7 +64,7 @@
                     </div>
                     <div class="flex items-center text-white">
                         <div class="hidden md:flex items-center space-x-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="blink">
                               <circle cx="8" cy="8" r="8" fill="#00FF00" style="filter: brightness(1.2);" />
                             </svg>                  
                             <span class="text-white text-center text-sm">Disponível para reunião</span>

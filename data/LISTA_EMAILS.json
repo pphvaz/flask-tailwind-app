@@ -1,47 +1,47 @@
 [
     {
-        "bulk_email_id": "678ebcbd48b2ce124cbc4059",
+        "bulk_email_id": "678fcfccacdb8f27b211f2cb",
         "cliente": {
             "aporte_mensal": 2000.0,
             "email": "pedrohvs.alves@gmail.com",
-            "nome": "Pedro Alves",
+            "nome": "Pedro",
             "patrimonio": 10000.0,
-            "telefone": "(12) 39120-3712"
+            "telefone": "(12) 93812-9839"
         },
-        "datahora": "2025-01-20 18:14:37",
+        "datahora": "2025-01-21 13:48:13",
         "emails": [
             {
                 "from": {
-                    "email": "MS_cVYv7P@trial-jpzkmgqwd8yg059v.mlsender.net",
+                    "email": "MS_Fsn3t8@dansaluminvest.com.br",
                     "name": "Assessoria Daniel Salum"
                 },
-                "html": "<html>\n<body style=\"font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; margin: 0; padding: 20px; text-align: center;\">\n    <!-- Banner -->\n    <div style=\"background-color: #333; color: #ffffff; padding: 20px; border-radius: 8px 8px 0 0; margin: 0 auto 20px; max-width: 600px;\">\n        <h1 style=\"font-size: 24px; margin: 0;\">Lead Capturado com Sucesso!</h1>\n    </div>\n\n    <!-- Conte\u00fado principal -->\n    <div style=\"background-color: #ffffff; border-radius: 0 0 8px 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: 1px solid #ddd; margin: 0 auto; max-width: 600px;\">\n        <h2 style=\"color: #000;\">Boas not\u00edcias: Novo lead, Pedro Alves</h2>\n        <div style=\"margin-bottom: 20px;\"><strong style=\"color: #333;\">Nome:</strong> Pedro Alves</div>\n        <div style=\"margin-bottom: 20px;\"><strong style=\"color: #333;\">Telefone:</strong> (12) 39120-3712</div>\n        <div style=\"margin-bottom: 20px;\"><strong style=\"color: #333;\">Email:</strong> pedrohvs.alves@gmail.com</div>\n        <div style=\"margin-bottom: 20px;\"><strong style=\"color: #333;\">Patrim\u00f4nio: At\u00e9 </strong> R$\u00a010.000,00</div>\n        <div style=\"margin-bottom: 20px;\"><strong style=\"color: #333;\">Aporte Mensal: At\u00e9 </strong> R$\u00a02.000,00</div>\n        <div style=\"font-size: 12px; color: #777; margin-top: 20px;\">Data e Hora do Envio: 2025-01-20 18:14:36</div>\n    </div>\n</body>\n</html>\n",
-                "subject": "Boas not\u00edcias: Novo lead, Pedro Alves",
-                "text": "\n    Boas not\u00edcias: Novo lead, Pedro Alves\n\n    Nome: Pedro Alves\n    Telefone: (12) 39120-3712\n    Email: pedrohvs.alves@gmail.com\n    Patrim\u00f4nio: R$\u00a010.000,00\n    Aporte Mensal: R$\u00a02.000,00\n\n    Data e Hora do Envio: 2025-01-20 18:14:36\n    ",
+                "html": "<html>\n<body style=\"font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; margin: 0; padding: 20px; text-align: center;\">\n    <!-- Banner -->\n    <div style=\"background-color: #333; color: #ffffff; padding: 20px; border-radius: 8px 8px 0 0; margin: 0 auto 20px; max-width: 600px;\">\n        <h1 style=\"font-size: 24px; margin: 0;\">Lead Cadastrado com Sucesso!</h1>\n    </div>\n\n    <!-- Conte\u00fado principal -->\n    <div style=\"background-color: #ffffff; border-radius: 0 0 8px 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: 1px solid #ddd; margin: 0 auto; max-width: 600px;\">\n        <h2 style=\"color: #000;\">Boas not\u00edcias: Novo lead!</h2>\n        <div style=\"margin-bottom: 20px;\"><strong style=\"color: #333;\">Nome:</strong> Pedro</div>\n        <div style=\"margin-bottom: 20px;\"><strong style=\"color: #333;\">Telefone:</strong> (12) 93812-9839</div>\n        <div style=\"margin-bottom: 20px;\"><strong style=\"color: #333;\">Email:</strong> pedrohvs.alves@gmail.com</div>\n        <div style=\"margin-bottom: 20px;\"><strong style=\"color: #333;\">Patrim\u00f4nio: At\u00e9 </strong> R$\u00a010.000,00</div>\n        <div style=\"margin-bottom: 20px;\"><strong style=\"color: #333;\">Aporte Mensal: At\u00e9 </strong> R$\u00a02.000,00</div>\n        <div style=\"font-size: 12px; color: #777; margin-top: 20px;\">Data e Hora do Envio: 2025-01-21 13:48:11</div>\n    </div>\n</body>\n</html>\n",
+                "subject": "Boas not\u00edcias: Novo lead, Pedro",
+                "text": "\n    Boas not\u00edcias: Novo lead, Pedro\n\n    Nome: Pedro\n    Telefone: (12) 93812-9839\n    Email: pedrohvs.alves@gmail.com\n    Patrim\u00f4nio: R$\u00a010.000,00\n    Aporte Mensal: R$\u00a02.000,00\n\n    Data e Hora do Envio: 2025-01-21 13:48:11\n    ",
                 "to": [
                     {
-                        "email": "pedrohvs.alves1@gmail.com",
+                        "email": "pedrohvs.alves@gmail.com",
                         "name": "Daniel Salum"
                     }
                 ]
             },
             {
                 "from": {
-                    "email": "MS_cVYv7P@trial-jpzkmgqwd8yg059v.mlsender.net",
+                    "email": "MS_Fsn3t8@dansaluminvest.com.br",
                     "name": "Assessoria Daniel Salum"
                 },
-                "html": "<html>\n<body style=\"font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; margin: 0; padding: 20px; text-align: center;\">\n    <!-- Banner de boas-vindas -->\n    <div style=\"background-color: #333; color: #ffffff; padding: 20px; border-radius: 8px 8px 0 0; margin: 0 auto 20px; max-width: 600px;\">\n        <h1 style=\"font-size: 24px; margin: 0;\">Obrigado pelo seu contato!</h1>\n    </div>\n\n    <!-- Conte\u00fado principal -->\n    <div style=\"background-color: #ffffff; border-radius: 0 0 8px 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: 1px solid #ddd; margin: 0 auto; max-width: 600px; text-align: left;\">\n        <p style=\"font-size: 16px; color: #333; line-height: 1.6;\">\n            Ol\u00e1 <strong>Pedro Alves</strong>,\n        </p>\n        <p style=\"font-size: 16px; color: #333; line-height: 1.6;\">\n            Agradecemos por entrar em contato conosco! Seu interesse foi recebido com sucesso. Nosso assessor, <strong>Daniel Salum</strong>, entrar\u00e1 em contato com voc\u00ea o mais breve poss\u00edvel.\n        </p>\n        <p style=\"font-size: 16px; color: #333; line-height: 1.6;\">\n            Enquanto isso, caso precise de mais informa\u00e7\u00f5es, sinta-se \u00e0 vontade para entrar em contato diretamente:\n        </p>\n        <ul style=\"font-size: 16px; color: #333; line-height: 1.6; padding-left: 20px;\">\n            <li><strong>Email:</strong> joao.silva@empresa.com</li>\n            <li><strong>Telefone:</strong> (11) 98765-4321</li>\n        </ul>\n        <p style=\"font-size: 16px; color: #333; line-height: 1.6;\">\n            Estamos \u00e0 disposi\u00e7\u00e3o para ajudar com o que for necess\u00e1rio!\n        </p>\n        <p style=\"font-size: 16px; color: #777; line-height: 1.6;\">\n            Atenciosamente,<br>\n            Equipe de Atendimento\n        </p>\n    </div>\n\n    <!-- Rodap\u00e9 -->\n    <div style=\"background-color: #333; color: #ffffff; padding: 20px; border-radius: 8px; margin: 20px auto 0; max-width: 600px; text-align: center;\">\n        <p style=\"font-size: 14px; margin: 0; line-height: 1.6;\">\n            Endere\u00e7o: Rua Exemplo, 123 - Centro, S\u00e3o Paulo - SP, 01000-000<br>\n            \u00a9 2025 Empresa XYZ. Todos os direitos reservados.\n        </p>\n    </div>\n</body>\n</html>\n",
-                "subject": "Ol\u00e1, Pedro Alves! Sua solicita\u00e7\u00e3o foi recebida com sucesso",
-                "text": "\n    Ol\u00e1 Pedro Alves,\n\n    Obrigado por entrar em contato conosco! Recebemos suas informa\u00e7\u00f5es e um dos nossos assessores entrar\u00e1 em contato com voc\u00ea o mais r\u00e1pido poss\u00edvel para entender melhor suas necessidades e ajud\u00e1-lo.\n\n    Estamos \u00e0 disposi\u00e7\u00e3o para ajudar no que for necess\u00e1rio.\n\n    Atenciosamente,  \n    Equipe de Atendimento\n    ",
+                "html": "<html>\n<body style=\"font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; margin: 0; padding: 20px; text-align: center;\">\n    <!-- Banner de boas-vindas -->\n    <div style=\"background-color: #333; color: #ffffff; padding: 20px; border-radius: 8px 8px 0 0; margin: 0 auto 20px; max-width: 600px;\">\n        <h1 style=\"font-size: 24px; margin: 0;\">Obrigado pelo seu contato!</h1>\n    </div>\n\n    <!-- Conte\u00fado principal -->\n    <div style=\"background-color: #ffffff; border-radius: 0 0 8px 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: 1px solid #ddd; margin: 0 auto; max-width: 600px; text-align: left;\">\n        <p style=\"font-size: 16px; color: #333; line-height: 1.6;\">\n            Ol\u00e1 <strong>Pedro</strong>,\n        </p>\n        <p style=\"font-size: 16px; color: #333; line-height: 1.6;\">\n            Agradecemos por entrar em contato conosco! Seu interesse foi recebido com sucesso. Nosso assessor, <strong>Daniel Salum</strong>, entrar\u00e1 em contato com voc\u00ea o mais breve poss\u00edvel.\n        </p>\n        <p style=\"font-size: 16px; color: #333; line-height: 1.6;\">\n            Enquanto isso, caso precise de mais informa\u00e7\u00f5es, sinta-se \u00e0 vontade para entrar em contato diretamente:\n        </p>\n        <ul style=\"font-size: 16px; color: #333; line-height: 1.6; padding-left: 20px;\">\n            <li><strong>Email:</strong> daniel.salum@altavistainvest.com.br</li>\n            <li><strong>Telefone:</strong> (12) 99618-9706</li>\n        </ul>\n        <p style=\"font-size: 16px; color: #333; line-height: 1.6;\">\n            Estamos \u00e0 disposi\u00e7\u00e3o para ajudar com o que for necess\u00e1rio!\n        </p>\n        <p style=\"font-size: 16px; color: #777; line-height: 1.6;\">\n            Atenciosamente,<br>\n            Equipe de Atendimento\n        </p>\n    </div>\n\n    <!-- Rodap\u00e9 -->\n    <div style=\"background-color: #333; color: #ffffff; padding: 20px; border-radius: 8px; margin: 20px auto 0; max-width: 600px; text-align: center;\">\n        <p style=\"font-size: 14px; margin: 0; line-height: 1.6;\">\n            Endere\u00e7o: Av. S\u00e3o Jo\u00e3o, 2200, CEP: 12242-000, Ed. Colinas Green Tower, 11\u00ba Andar - Sala 1702<br>\n            \u00a9 2025 Empresa XYZ. Todos os direitos reservados.\n        </p>\n    </div>\n</body>\n</html>",
+                "subject": "Ol\u00e1, Pedro! Sua solicita\u00e7\u00e3o foi recebida com sucesso",
+                "text": "\n    Ol\u00e1 Pedro,\n\n    Obrigado por entrar em contato conosco! Recebemos suas informa\u00e7\u00f5es e um dos nossos assessores entrar\u00e1 em contato com voc\u00ea o mais r\u00e1pido poss\u00edvel para entender melhor suas necessidades e ajud\u00e1-lo.\n\n    Estamos \u00e0 disposi\u00e7\u00e3o para ajudar no que for necess\u00e1rio.\n\n    Atenciosamente,  \n    Equipe de Atendimento\n    ",
                 "to": [
                     {
                         "email": "pedrohvs.alves@gmail.com",
-                        "name": "Pedro Alves"
+                        "name": "Pedro"
                     }
                 ]
             }
         ],
-        "message": "The bulk email is being processed.",
+        "message": "{\"message\":\"The bulk email is being processed.\",\"bulk_email_id\":\"678fcfccacdb8f27b211f2cb\"}",
         "status": "processando",
         "status_code": 202,
         "tentativas": 1
