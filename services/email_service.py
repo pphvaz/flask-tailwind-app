@@ -147,17 +147,10 @@ def processar_email(entry, headers, lista_emails):
             lista_emails.remove(entry)
         else:
             logger.info("Email ainda não concluído, reenviando...")
-            email_utils.enviar_lista_emails(entry['emails'])
     else:
         logger.warning(f"Falha ao verificar email {entry['bulk_email_id']}. Status: {response.status_code}.")
         # Criar nova solicitação de email em caso de falha
         response = enviar_emails(entry['cliente']['nome'], entry['cliente']['telefone'], entry['cliente']['email'], entry['cliente']['patrimonio'], entry['cliente']['aporte_mensal'], True)
-        print(response)
-        if response.status_code == 202:
-            logger.info("Email reenviado com sucesso.\n")
-            entry['bulk_email_id'] = response.json().get('bulk_email_id')
-            entry['status'] = "processando"
-    
     entry['tentativas'] += 1
 
 def configurar_email(recipient, subject, text_content, html_content):
