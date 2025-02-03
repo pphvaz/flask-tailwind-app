@@ -126,10 +126,8 @@ def verificar_lista_emails():
     }
     
     for entry in lista_emails[:]:
-        if entry["status"] not in ["completed"]:
-            processar_email(entry, headers, lista_emails)
-        else:
-            logger.info(f"Email com bulk_email_id {entry['bulk_email_id']} já enviado ou com falha.")
+        processar_email(entry, headers, lista_emails)
+        
 
     # Salvar lista atualizada
     with open(LISTA_EMAILS, "w") as f:
@@ -147,11 +145,11 @@ def processar_email(entry, headers, lista_emails):
             lista_emails.remove(entry)
         else:
             logger.info("Email ainda não concluído, reenviando...")
+            entry['tentativas'] += 1
     else:
         logger.warning(f"Falha ao verificar email {entry['bulk_email_id']}. Status: {response.status_code}.")
-        # Criar nova solicitação de email em caso de falha
-        response = enviar_emails(entry['cliente']['nome'], entry['cliente']['telefone'], entry['cliente']['email'], entry['cliente']['patrimonio'], entry['cliente']['aporte_mensal'], True)
-    entry['tentativas'] += 1
+        response = enviar_emails(entry['cliente']['nome'], entry['cliente']['telefone'], entry['cliente']['email'], entry['cliente']['patrimonio'], entry['cliente']['aporte_mensal'], False)
+        lista_emails.remove(entry)
 
 def configurar_email(recipient, subject, text_content, html_content):
     """LISTA_EMAILS

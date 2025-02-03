@@ -63,7 +63,7 @@ finantial.validate_financial_data()
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(validate_financial_data, 'interval', days=5)
-scheduler.add_job(verificar_lista_emails, 'interval', hours=1)
+scheduler.add_job(verificar_lista_emails, 'interval', hours=24)
 scheduler.start()
 
 if __name__ == "__main__":
